@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .signup-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .signup-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .signup-form input, .signup-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .signup-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .signup-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-form">
+        <h2>Teacher Signup</h2>
+        <form action="" method="POST">
+            <label for="tname">Name:</label>
+            <input type="text" id="tname" name="tname" placeholder="Enter your name" required>
+
+            <label for="faculty">Faculty:</label>
+            <input type="text" id="faculty" name="faculty" placeholder="Enter your faculty" required>
+
+            <label for="code">Code:</label>
+            <input type="text" id="code" name="code" placeholder="Enter your code" required>
+
+            <label for="tusername">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Create a username" required>
+
+            <label for="tpassword">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

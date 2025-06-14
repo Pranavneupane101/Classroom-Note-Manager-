@@ -1,0 +1,38 @@
+
+\subsection{Preprocessing}
+Preprocessing begins with loading and combining the DOS,DDOS and benign file into  single file. Then the further processes are done. 
+\subsubsection{Feature Selection and Correlation Analysis}
+After loading the dataset, the feature selection process is performed using a Random Forest Classifier. The dataset is split into features (X) and labels (y), followed by a train-test split to ensure that the model is trained and evaluated on different subsets of data. A Random Forest model is trained on the dataset, and feature importance scores are extracted. Features with an importance score greater than 0.01 are selected for further processing.
+
+To understand the relationships between different features, a correlation matrix is computed after encoding the categorical label column using Label Encoding. A heatmap is then generated to visualize the correlation between features. A function is implemented to remove highly correlated columns with a correlation threshold of 0.9 to eliminate redundant features. Additionally, feature names are renamed to more meaningful identifiers for clarity.
+\subsubsection{Handling Class Imbalance}
+Since the dataset contains an imbalance between benign and attack traffic, it is necessary to balance the classes before training the model. Random Under-Sampling (RUS) is applied to reduce the size of the majority class, ensuring that no single class dominates the dataset. Next, SMOTE (Synthetic Minority Over-sampling Technique) is used to generate synthetic samples for the minority class, further balancing the dataset. This ensures that the classifier does not develop a bias toward the dominant class.
+ 
+\subsubsection{Feature Scaling}
+Once the dataset is balanced, feature normalization is performed using MinMaxScaler to scale all numerical features between 0 and 1. This helps in ensuring that all features contribute equally to the model’s learning process, preventing features with larger ranges from dominating others. The trained MinMaxScaler is then saved using joblib, allowing consistent preprocessing for future data during model deployment.
+
+
+
+.\begin{table}[h!]
+\right
+\begin{tabular}{|c|l|r|}
+\hline
+\textbf{No.} & \textbf{Feature Name}  } \\ \hline
+1  & bwd\_payload\_bytes\_mean \\ \hline
+2  & payload\_bytes\_variance \\ \hline
+3  & bwd\_packets\_length\_total  \\ \hline
+4  & fwd\_packets\_length\_total \\ \hline
+5  & fwd\_packets\_IAT\_std \\ \hline
+6  & fwd\_payload\_\bytes\_\mean \\ \hline
+7  & fwd\_payload\_bytes\_max\\ \hline
+8  & bwd\_total\_header\_bytes \\ \hline
+9  & fwd\_total\_header\_bytes	bwd\_packets\_rate \\ \hline
+10 & packets\_rate	bwd\_init\_win\_bytes\\ \hline
+11 & fwd\_packets\_IAT\_mean	fwd\_init\_win\_bytes \\ \hline
+12 & Label \\ \hline
+
+\end{tabular}\\
+\caption{Features of CICIDS2017 datset}
+\label{tab:example}
+\end{table}
+\newpage

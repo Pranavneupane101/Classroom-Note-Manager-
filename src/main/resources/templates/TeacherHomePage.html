@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 20px;
+    }
+    .teacher-card {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .teacher-card h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .upload-button-container {
+      text-align: center;
+    }
+    .upload-notes-button, .update-notes-button {
+      padding: 16px 32px;
+      font-size: 18px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+    .logout-button {
+      padding: 16px 32px;
+      font-size: 18px;
+      background-color: #dc3545; /* red color */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+    .upload-notes-button:hover, .update-notes-button:hover {
+      background-color: #0056b3;
+    }
+    .logout-button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Teacher Info Section -->
+  <div class="teacher-card">
+    <h2>Welcome, [[${session.activeus.tname}]]</h2>
+  </div>
+
+  <!-- Upload Notes Button Section -->
+  <div class="upload-button-container">
+    <form action="/upload" method="GET">
+      <button type="submit" class="upload-notes-button">Upload Notes</button>
+    </form>
+  </div>
+
+  <!-- Update Notes Button Section -->
+  <div class="upload-button-container">
+    <form action="/update" method="GET">
+      <button type="submit" class="update-notes-button">Update Notes</button>
+    </form>
+  </div>
+
+  <!-- Logout Button Section -->
+  <div class="upload-button-container">
+    <form action="/teacherlogout" method="GET">
+      <button type="submit" class="logout-button">Logout</button>
+    </form>
+  </div>
+
+</body>
+</html>
+ 

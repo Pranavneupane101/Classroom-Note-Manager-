@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+    }
+    .student-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+    .student-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .student-details {
+      text-align: center;
+    }
+    .student-details p {
+      margin: 10px 0;
+    }
+    .notes-button-container {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .get-notes-button, .logout-button {
+      padding: 16px 64px;
+      font-size: 18px;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      margin: 10px 0;
+    }
+    .get-notes-button {
+      background-color: #4CAF50;
+    }
+    .get-notes-button:hover {
+      background-color: #45a049;
+    }
+    .logout-button {
+      background-color: #dc3545;
+    }
+    .logout-button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="student-card">
+    <!-- Display the student's photo -->
+    <img th:src="${session.activeuser.photoPath}" class="student-photo">
+
+    <!-- Display the student's details -->
+    <div class="student-details">
+      <p><strong>Name:</strong> [[${session.activeuser.name}]]</p>
+      <p><strong>Gender:</strong> [[${session.activeuser.gender}]]</p>
+      <p><strong>Grade:</strong> [[${session.activeuser.grade}]]</p>
+      <p><strong>Roll Number:</strong> [[${session.activeuser.rollNo}]]</p>
+    </div>
+  </div>
+
+  <!-- "Get Notes" Button -->
+  <div class="notes-button-container">
+    <form action="/download" method="GET">
+      <button type="submit" class="get-notes-button">Get Notes</button>
+    </form>
+  </div>
+
+  <!-- Logout Button -->
+  <div class="notes-button-container">
+    <form action="/studentlogout" method="GET">
+      <button type="submit" class="logout-button">Logout</button>
+    </form>
+  </div>
+
+</body>
+</html>

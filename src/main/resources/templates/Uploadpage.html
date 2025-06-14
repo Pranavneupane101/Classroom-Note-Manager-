@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Note</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .upload-form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+    .upload-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .upload-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .upload-form input[type="text"],
+    .upload-form input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .upload-form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .upload-form button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+    <h2>Upload Note</h2>
+
+    <label for="subject">Subject</label>
+    <input type="text" id="Subject" name="Subject" placeholder="Enter subject" required>
+
+    <label for="noteFile">Upload File</label>
+    <input type="file" id="docx" name="docx" required>
+
+    <button type="submit">Upload Note</button>
+  </form>
+
+</body>
+</html>

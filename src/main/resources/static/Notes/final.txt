@@ -1,0 +1,21 @@
+Fast KNN is used to detect network attacks by analyzing traffic data from the CICIDS2017 dataset. The process begins by converting each network packet or flow into a feature vector containing important network metrics. These features include Bwd Payload Bytes, Payload Bytes Variance, Bwd Packets Length Total, Fwd Packets Length Total, Fwd Packets IAT Std, Fwd Payload, Fwd Payload Bytes Max, Bwd Total Header Bytes, Fwd Total Header Bytes, Bwd Packets Rate, Packets Rate, Bwd Init Win Bytes, Fwd Packets IAT Mean, and Fwd Init Win Bytes. These feature vectors serve as inputs for the Fast KNN algorithm, allowing it to classify network activity as normal or malicious.
+
+During the training phase, a subset of the CICIDS2017 dataset containing both normal and attack traffic is used. Fast KNN computes distances between feature vectors using metrics such as Euclidean distance. To improve efficiency, it employs optimizations like efficient indexing and approximate nearest neighbor search techniques. These enhancements make Fast KNN faster than traditional KNN while maintaining high accuracy.
+
+In the prediction phase, when a new network packet or flow arrives, it is first converted into a feature vector. Fast KNN then compares this vector to stored training data and identifies the K nearest neighbors. Each of these neighbors votes on the classification of the new packet. The majority vote determines whether the packet is classified as normal or as one of the attack types, such as DDoS, DoS, or Probe. This approach ensures that Fast KNN can quickly and accurately detect network attacks in real-time environments.
+
+Feature Descriptions:
+Bwd Payload Bytes – The total number of payload bytes in backward packets.
+Payload Bytes Variance – The variance in the payload size of packets.
+Bwd Packets Length Total – The total length of all backward packets in the flow.
+Fwd Packets Length Total – The total length of all forward packets in the flow.
+Fwd Packets IAT Std – The standard deviation of inter-arrival time between forward packets.
+Fwd Payload – The total payload size of all forward packets.
+Fwd Payload Bytes Max – The maximum payload size of a forward packet.
+Bwd Total Header Bytes – The total number of header bytes in backward packets.
+Fwd Total Header Bytes – The total number of header bytes in forward packets.
+Bwd Packets Rate – The rate at which backward packets are transmitted.
+Packets Rate – The overall packet transmission rate in the flow.
+Bwd Init Win Bytes – The initial window size in backward packets.
+Fwd Packets IAT Mean – The average inter-arrival time between forward packets.
+Fwd Init Win Bytes – The initial window size in forward packets.
